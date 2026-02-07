@@ -5,3 +5,4 @@ docs/.vitepress/dist
 *.log
 .env
 .env.local
+.vercel
