@@ -3,18 +3,18 @@ layout: home
 
 hero:
   name: "AI 小白的进化之路"
-  text: "从零开始掌握 Claude Code 和 AI 工具链"
-  tagline: "金田带你实战学习，让 AI 成为你的效率倍增器"
+  text: "5分钟掌握 Claude Code，让 AI 成为你最得力的助手"
+  tagline: "专为初学者设计 · 金田实战经验总结 · 从小白到高手"
   image:
     src: /logo.png
     alt: AI 小白的进化之路
   actions:
     - theme: brand
-      text: 开始学习
-      link: /guide/chapter1
+      text: 🚀 30秒快速上手
+      link: /guide/quickstart
     - theme: alt
-      text: 在 GitHub 查看
-      link: https://github.com/Tian0225/ai-beginner-evolution
+      text: 📖 阅读完整指南
+      link: /guide/full-guide
 
 features:
   - title: 🚀 快速上手
