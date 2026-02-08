@@ -1,0 +1,67 @@
+/* 自定义样式 */
+:root {
+  --c-brand: #6366f1;
+  --c-brand-light: #818cf8;
+  --c-brand-dark: #4f46e5;
+}
+
+.vp-doc {
+  max-width: 960px !important;
+}
+
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.hero-name {
+  color: white !important;
+}
+
+.hero-text {
+  color: rgba(255,255,255,0.9) !important;
+}
+
+.hero-tagline {
+  color: rgba(255,255,255,0.8) !important;
+}
+
+.VPSocialLink {
+  color: white !important;
+}
+
+/* 优化代码块 */
+.vp-doc div[class*="language-"] {
+  border-radius: 8px;
+  margin: 16px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 优化表格 */
+.vp-doc table {
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+/* 优化提示框 */
+.custom-block {
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+/* 优化图片 */
+.vp-doc img {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 优化侧边栏 */
+.VPSidebar {
+  border-right: 1px solid var(--vp-c-divider);
+}
+
+/* 优化导航 */
+.VPNav {
+  border-bottom: 1px solid var(--vp-c-divider);
+}

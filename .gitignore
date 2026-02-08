@@ -1,0 +1,60 @@
+node_modules
+docs/.vitepress/cache
+docs/.vitepress/dist
+.DS_Store
+*.log
+.env
+.env.local
+.env.gemini
+.claude/.env.gemini
+.vercel
+
+# 依赖
+node_modules/
+
+# 日志
+*.log
+npm-debug.log*
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# 敏感信息
+accounts.json
+credentials.json
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.venv/
+venv/
+
+# 数据库
+*.db
+*.sqlite
+*.sqlite3
+
+# 其他
+.cache/
+dist/
+build/
+
+# Next.js 构建文件
+.next/
+out/
+next-env.d.ts
+
+# 大型媒体文件（超过 100MB）
+B站好物/**/04_实拍素材/
+B站好物/**/05_参考资料/参考视频/
+*.m4a
