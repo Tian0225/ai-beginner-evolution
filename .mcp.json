@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "gemini-pro": {
+      "command": "node",
+      "args": ["/Users/jitian/.claude/mcp-servers/gemini-pro/server.js"],
+      "env": {
+        "GOOGLE_API_KEY": "AIzaSyB3CqdMVGrkTKsp2844sr-4EIrlyTJH_sA"
+      }
+    }
+  }
+}
