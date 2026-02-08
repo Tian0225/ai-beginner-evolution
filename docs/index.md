@@ -6,8 +6,8 @@ hero:
   text: "5分钟掌握 Claude Code，让 AI 成为你最得力的助手"
   tagline: "专为初学者设计 · 金田实战经验总结 · 从小白到高手"
   image:
-    src: /logo.png
-    alt: AI 小白的进化之路
+    src: /images/hero-robot.png
+    alt: AI Learning Bot
   actions:
     - theme: brand
       text: 🚀 30秒快速上手

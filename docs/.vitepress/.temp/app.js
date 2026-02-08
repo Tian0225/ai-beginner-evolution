@@ -1,5 +1,5 @@
 import { ssrRenderAttrs, ssrRenderSlot, ssrInterpolate, ssrRenderAttr, ssrRenderList, ssrRenderComponent, ssrRenderVNode, ssrRenderClass, renderToString } from "vue/server-renderer";
-import { defineComponent, mergeProps, useSSRContext, shallowRef, inject, computed, ref, watch, onUnmounted, reactive, markRaw, readonly, nextTick, h, unref, onMounted, watchEffect, watchPostEffect, onUpdated, resolveComponent, createVNode, resolveDynamicComponent, withCtx, renderSlot, createTextVNode, toDisplayString, openBlock, createBlock, createCommentVNode, Fragment, renderList, provide, toHandlers, withKeys, onBeforeUnmount, useSlots, createSSRApp } from "vue";
+import { defineComponent, mergeProps, useSSRContext, shallowRef, inject, computed, ref, watch, onUnmounted, reactive, markRaw, readonly, nextTick, h, unref, onMounted, watchEffect, watchPostEffect, onUpdated, resolveComponent, createVNode, resolveDynamicComponent, withCtx, renderSlot, createTextVNode, toDisplayString, openBlock, createBlock, createCommentVNode, Fragment, renderList, defineAsyncComponent, provide, toHandlers, withKeys, onBeforeUnmount, useSlots, createSSRApp } from "vue";
 import { usePreferredDark, useDark, useMediaQuery, useWindowSize, onKeyStroke, useWindowScroll, useScrollLock } from "@vueuse/core";
 import { _ as _export_sfc } from "./plugin-vue_export-helper.1tPrXgE0.js";
 const _sfc_main$14 = /* @__PURE__ */ defineComponent({
@@ -30,7 +30,7 @@ _sfc_main$14.setup = (props, ctx) => {
 function deserializeFunctions(r) {
   return Array.isArray(r) ? r.map(deserializeFunctions) : typeof r == "object" && r !== null ? Object.keys(r).reduce((t, n) => (t[n] = deserializeFunctions(r[n]), t), {}) : typeof r == "string" && r.startsWith("_vp-fn_") ? new Function(`return ${r.slice(7)}`)() : r;
 }
-const siteData = deserializeFunctions(JSON.parse('{"lang":"en-US","dir":"ltr","title":"VitePress","description":"A VitePress site","base":"/","head":[],"router":{"prefetchLinks":true},"appearance":true,"themeConfig":{},"locales":{},"scrollOffset":134,"cleanUrls":false}'));
+const siteData = deserializeFunctions(JSON.parse('{"lang":"en-US","dir":"ltr","title":"AI Evolution Path","description":"从零开始掌握 Claude Code 和 AI 工具链","base":"/","head":[],"router":{"prefetchLinks":true},"appearance":true,"themeConfig":{"siteTitle":"AI 小白的进化之路","nav":[{"text":"首页","link":"/"},{"text":"快速开始","link":"/guide/quickstart"},{"text":"系统教程","link":"/guide/chapter1"},{"text":"常见问题","link":"/guide/faq"},{"text":"推荐资源","link":"/guide/resources"}],"sidebar":[{"text":"🚀 快速开始","items":[{"text":"30秒快速上手","link":"/guide/quickstart"},{"text":"完整入门指南","link":"/guide/full-guide"}]},{"text":"📖 系统教程","items":[{"text":"第1章：快速上手","link":"/guide/chapter1"},{"text":"第2章：MCP 服务器","link":"/guide/chapter2"},{"text":"第3章：Skills 系统","link":"/guide/chapter3"},{"text":"第4章：API 集成","link":"/guide/chapter4"},{"text":"第5章：实战项目","link":"/guide/chapter5"}]},{"text":"💡 帮助与资源","items":[{"text":"常见问题 (FAQ)","link":"/guide/faq"},{"text":"推荐资源","link":"/guide/resources"},{"text":"更新日志","link":"/guide/changelog"}]}],"search":{"provider":"algolia","options":{"appId":"YOUR_APP_ID","apiKey":"YOUR_API_KEY","indexName":"ai-beginner-evolution","locales":{"zh":{"placeholder":"搜索文档","translations":{"button":{"buttonText":"搜索文档","buttonAriaLabel":"搜索文档"},"modal":{"searchBox":{"resetButtonTitle":"清除查询条件","resetButtonAriaLabel":"清除查询条件","cancelButtonText":"取消","cancelButtonAriaLabel":"取消"},"startScreen":{"recentSearchesTitle":"搜索历史","noRecentSearchesText":"没有搜索历史","saveRecentSearchButtonTitle":"保存至搜索历史","removeRecentSearchButtonTitle":"从搜索历史中移除","favoriteSearchesTitle":"收藏","removeFavoriteSearchButtonTitle":"从收藏中移除"},"errorScreen":{"titleText":"无法获取结果","helpText":"你可能需要检查你的网络连接"},"footer":{"selectText":"选择","navigateText":"切换","closeText":"关闭","searchByText":"搜索提供者"},"noResultsScreen":{"noResultsText":"无法找到相关结果","suggestedQueryText":"你可以尝试查询","reportMissingResultsText":"你认为该查询应该有结果？","reportMissingResultsLinkText":"点击反馈"}}}}}}},"socialLinks":[{"icon":"github","link":"https://github.com/Tian0225/ai-beginner-evolution"}],"footer":{"message":"由金田和 Claude Code 共同打造","copyright":"MIT License | 保留所有权利"}},"locales":{},"scrollOffset":134,"cleanUrls":false}'));
 const __vite_import_meta_env__ = {};
 const EXTERNAL_URL_RE = /^(?:[a-z]+:|\/\/)/i;
 const APPEARANCE_KEY = "vitepress-theme-appearance";
@@ -3100,14 +3100,37 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
   __ssrInlineRender: true,
   setup(__props) {
     const VPLocalSearchBox = () => null;
-    const VPAlgoliaSearchBox = () => null;
+    const VPAlgoliaSearchBox = defineAsyncComponent(() => import("./VPAlgoliaSearchBox.t9gw-d-2.js"));
     const { theme: theme2 } = useData();
     const loaded = ref(false);
     const actuallyLoaded = ref(false);
+    const preconnect = () => {
+      const id = "VPAlgoliaPreconnect";
+      const rIC = window.requestIdleCallback || setTimeout;
+      rIC(() => {
+        var _a;
+        const preconnect2 = document.createElement("link");
+        preconnect2.id = id;
+        preconnect2.rel = "preconnect";
+        preconnect2.href = `https://${(((_a = theme2.value.search) == null ? void 0 : _a.options) ?? theme2.value.algolia).appId}-dsn.algolia.net`;
+        preconnect2.crossOrigin = "";
+        document.head.appendChild(preconnect2);
+      });
+    };
     onMounted(() => {
-      {
-        return;
-      }
+      preconnect();
+      const handleSearchHotKey = (event) => {
+        if (event.key.toLowerCase() === "k" && (event.metaKey || event.ctrlKey) || !isEditingContent(event) && event.key === "/") {
+          event.preventDefault();
+          load();
+          remove();
+        }
+      };
+      const remove = () => {
+        window.removeEventListener("keydown", handleSearchHotKey);
+      };
+      window.addEventListener("keydown", handleSearchHotKey);
+      onUnmounted(remove);
     });
     function load() {
       if (!loaded.value) {
@@ -3126,8 +3149,13 @@ const _sfc_main$s = /* @__PURE__ */ defineComponent({
         }
       }, 16);
     }
+    function isEditingContent(event) {
+      const element = event.target;
+      const tagName = element.tagName;
+      return element.isContentEditable || tagName === "INPUT" || tagName === "SELECT" || tagName === "TEXTAREA";
+    }
     const showSearch = ref(false);
-    const provider = "";
+    const provider = "algolia";
     return (_ctx, _push, _parent, _attrs) => {
       var _a;
       _push(`<div${ssrRenderAttrs(mergeProps({ class: "VPNavBarSearch" }, _attrs))}>`);
@@ -5165,5 +5193,8 @@ async function render(path) {
   return ctx;
 }
 export {
-  render
+  useRoute as a,
+  useData as b,
+  render,
+  useRouter as u
 };

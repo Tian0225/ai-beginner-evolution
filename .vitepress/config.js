@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'AI 小白的进化之路',
+  title: 'AI Evolution Path',
   description: '从零开始掌握 Claude Code 和 AI 工具链',
   head: [
     ['link', { rel: 'stylesheet', href: '/theme.css', id: 'custom-theme' }]
@@ -15,9 +15,12 @@ export default defineConfig({
   },
 
   themeConfig: {
+    siteTitle: 'AI Evolution Path',
     nav: [
       { text: '首页', link: '/' },
-      { text: 'GitHub', link: 'https://github.com/Tian0225/ai-beginner-evolution' }
+      { text: '教程', link: '/guide/quickstart' },
+      { text: '社区', link: '/' },
+      { text: '关于我们', link: '/' }
     ],
 
     sidebar: [
