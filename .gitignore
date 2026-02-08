@@ -49,6 +49,11 @@ venv/
 dist/
 build/
 
+# Next.js 构建文件
+.next/
+out/
+next-env.d.ts
+
 # 大型媒体文件（超过 100MB）
 B站好物/**/04_实拍素材/
 B站好物/**/05_参考资料/参考视频/
