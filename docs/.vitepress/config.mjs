@@ -46,6 +46,7 @@ export default defineConfig({
         text: '💡 帮助与资源',
         items: [
           { text: '常见问题 (FAQ)', link: '/guide/faq' },
+          { text: 'Antigravity 配置实战', link: '/guide/antigravity-config-guide' },
           { text: '推荐资源', link: '/guide/resources' },
           { text: '更新日志', link: '/guide/changelog' }
         ]
